@@ -13,6 +13,12 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  #added a line of code to direct the picture to the cache, so it will "download" on the local server 
+  def cache_dir
+      "#{Rails.root}/tmp/uploads"
+    end
+
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
